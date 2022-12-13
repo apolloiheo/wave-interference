@@ -1,0 +1,120 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/vuetify@3.0.4/dist/vuetify.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+
+<link href="src/main.css" rel="stylesheet">
+
+<div id="app">
+    <v-card
+        class="mx-auto"
+    >
+        <v-layout>
+        <v-app-bar color="primary" density="compact">
+            <template v-slot:prepend>
+                <v-spacer></v-spacer>
+            </template>
+
+            <v-app-bar-title>Wave Interference</v-app-bar-title>
+        </v-app-bar>
+
+        <v-main>
+            <v-container>
+            <v-row class="justify-center">
+                <v-col cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
+                    <v-sheet color="grey-lighten-2">
+                        <canvas id="graph1"></canvas>
+                    </v-sheet>
+                </v-col>
+                <v-col cols="12" xs="12" sm="12" md="3" lg="4" xl="5">
+                    <div class="wave-prop-title" style="text-align: center;">
+                        Wave 1 Properties</div>
+                    Wavelength
+                    <v-slider
+                        id="slider__chart1_wave"
+                        v-model="slider__chart1_wave"
+                        color="orange"
+                        placeholer=50
+                    ></v-slider>
+                    Angular Frequency
+                    <v-slider
+                        id="slider__chart1_freq"
+                        v-model="slider__chart1_freq"
+                        color="orange"
+                    ></v-slider>
+
+                    Phase Offset
+                    <v-slider
+                        id="slider__chart1_offs"
+                        v-model="slider__chart1_offs"
+                        color="orange"
+                    ></v-slider>
+                </v-col>
+            </v-row>
+
+            <v-row class="justify-center">
+                <v-col cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
+                    <v-sheet color="grey-lighten-2">
+                        <canvas id="graph2"></canvas>
+                    </v-sheet>
+                </v-col>
+                <v-col cols="12" xs="12" sm="12" md="3" lg="4" xl="5">
+                    <div class="wave-prop-title" style="text-align: center;">
+                        Wave 2 Properties</div>
+                    Wavelength
+                    <v-slider
+                        id="slider__chart2_wave"
+                        v-model="slider__chart2_wave"
+                        color="orange"
+                    ></v-slider>
+                    Angular Frequency
+                    <v-slider
+                        id="slider__chart2_freq"
+                        v-model="slider__chart2_freq"
+                        color="orange"
+                    ></v-slider>
+
+                    Phase Offset
+                    <v-slider
+                        id="slider__chart2_offs"
+                        v-model="slider__chart2_offs"
+                        color="orange"
+                    ></v-slider>
+                </v-col>
+            </v-row>
+            
+            <v-row class="justify-center">
+                <v-col cols="12" xs="12" sm="12" md="10" lg="10" xl="10">
+                    <v-sheet color="grey-lighten-2">
+                        <canvas id="graphTotal"></canvas>
+                    </v-sheet>
+                </v-col>
+            </v-row>
+            </v-container>
+        </v-main>
+        </v-layout>
+    </v-card>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vuetify@3.0.4/dist/vuetify.min.js"></script>
+<script>
+    const { createApp } = Vue
+    const { createVuetify } = Vuetify
+
+    const vuetify = createVuetify()
+    const app = createApp({
+        data: () => ({
+            slider__chart1_wave: 50,
+            slider__chart1_freq: 75,
+            slider__chart1_offs: 0,
+            
+            slider__chart2_wave: 25,
+            slider__chart2_freq: 20,
+            slider__chart2_offs: 0
+        })
+    })
+    app.use(vuetify).mount('#app')
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="src/index.js"></script>
+
