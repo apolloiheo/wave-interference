@@ -15,17 +15,42 @@
             </template>
 
             <v-app-bar-title>Wave Interference</v-app-bar-title>
+
+            <template v-slot:append>
+                <v-btn
+                    style="background-color: transparent;"
+                    theme="dark"
+                    href="https://github.com/apolloiheo"
+                    target="_blank"
+                    icon="mdi-Github"></v-btn>
+              </template>
         </v-app-bar>
 
         <v-main>
+            <v-container class="mt-9 mb-3">
+                <v-row class="justify-center">
+                    <v-col cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
+                        <div style="text-align: center;">
+                            This allows the visual study of constructive interference, destructive interference, standing waves, and arbitrary superposition of two same-amplitude sinusoidal waves. Each wave’s wavelength, angular frequency, and phase offset can be modified.
+                            <br/> <br/>
+                            When each wave can be represented by
+                            <br/>
+                            <img height="44" src="src/equation.png" alt="equation"/>
+                            <br/>
+                            where lambda is wavelength, x is distance, omega is angular frequency, t is time, and phi is a phase shift, a combination of two wave functions over space and time can show interesting curves.
+                        </div>
+                    </v-col>
+                </v-row>
+            </v-container>
+
             <v-container>
             <v-row class="justify-center">
-                <v-col cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
+                <v-col class="my-3" cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
                     <v-sheet color="grey-lighten-2">
                         <canvas id="graph1"></canvas>
                     </v-sheet>
                 </v-col>
-                <v-col cols="12" xs="12" sm="12" md="3" lg="4" xl="5">
+                <v-col class="px-4 my-3" cols="12" xs="12" sm="12" md="3" lg="4" xl="5">
                     <div class="wave-prop-title" style="text-align: center;">
                         Wave 1 Properties</div>
                     Wavelength
@@ -52,12 +77,12 @@
             </v-row>
 
             <v-row class="justify-center">
-                <v-col cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
+                <v-col class="my-3" cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
                     <v-sheet color="grey-lighten-2">
                         <canvas id="graph2"></canvas>
                     </v-sheet>
                 </v-col>
-                <v-col cols="12" xs="12" sm="12" md="3" lg="4" xl="5">
+                <v-col class="px-4 my-3" cols="12" xs="12" sm="12" md="3" lg="4" xl="5">
                     <div class="wave-prop-title" style="text-align: center;">
                         Wave 2 Properties</div>
                     Wavelength
@@ -82,7 +107,7 @@
                 </v-col>
             </v-row>
             
-            <v-row class="justify-center">
+            <v-row class="justify-center my-3">
                 <v-col cols="12" xs="12" sm="12" md="10" lg="10" xl="10">
                     <v-sheet color="grey-lighten-2">
                         <canvas id="graphTotal"></canvas>
@@ -90,6 +115,22 @@
                 </v-col>
             </v-row>
             </v-container>
+
+            <v-container class="my-3">
+                <v-row class="justify-center">
+                    <v-col cols="12" xs="12" sm="12" md="7" lg="6" xl="5">
+                        <div style="text-align: center;">
+                            Future plans for this project include allowing the superposition of more than 2 waves, improved user-interface, and circularly or elliptically polarized waves.
+                        </div>
+                    </v-col>
+                </v-row>
+            </v-container>
+
+            <v-footer class="bg-indigo-lighten-1 text-center d-flex flex-column mt-5">
+                <div>
+                    {{ new Date().getFullYear() }} - <strong>Apollo Heo</strong>
+                </div>
+            </v-footer>
         </v-main>
         </v-layout>
     </v-card>
